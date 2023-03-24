@@ -1,0 +1,19 @@
+.van-cell,
+.van-cell.van-field {
+  border-bottom: 1px solid $bordercolor;
+  padding: 18px 40px;
+  align-items: center;
+  &::after {
+    border-bottom: none;
+  }
+  .van-cell__title {
+    font-size: 26px;
+    vertical-align: middle;
+    color: $black;
+    text-align: left;
+  }
+  .van-icon__image {
+    margin-right: 10px;
+    width: 32px;
+  }
+}

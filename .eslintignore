@@ -1,0 +1,6 @@
+build/*.js
+src/*.d.ts
+src/assets
+public
+dist
+mock

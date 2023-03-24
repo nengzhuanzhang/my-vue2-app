@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #f7f8fa;
+}
+.mb15 {
+  margin-bottom: 15px;
+}
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*颜色 */
+$lightGery: #e3e3e3;
+$grey: #999;
+$heightGrey: #666;
+$lightgrey: #b1b1b1;
+$bgcolor: #fff;
+$white: #fff;
+$bordercolor: #e3e3e3;
+$black: #333;
+$font-color: #3d3d3d;
+$red: red;
+
+//定义字体规范
+$font-size-small-s: 20px;
+$font-size-small: 22px;
+$font-size-medium: 24px;
+$font-size-medium-x: 32px;
+$font-size-large: 36px;
+$font-size-large-x: 40px;
+
+// 单行文本超出显示省略号
+@mixin no-wrap() {
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 多行文本超出显示省略号
+@mixin no-wrap-multi($n) {
+  display: -webkit-box !important;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $n; // 可显示行数
+}
+
+@mixin box-shadow {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08); /* no */
+}

@@ -1,0 +1,48 @@
+{{#each extraTypes}}
+/**
+  * {{{description}}}
+  * @typedef {Object} {{name}}
+  {{#each props }}
+  * @property { {{{type}}} } {{name}} - {{{description}}}
+  {{/each}}
+  */
+{{/each}}
+
+/**
+  * {{{resultType.description}}}
+  * @typedef {Object} {{resultType.name}}
+{{#each resultType.props }}
+  * @property { {{{type}}} } {{name}} - {{{description}}}
+{{/each}}
+  */
+
+/**
+  * {{{resultType.description}}} Result 封装
+  * @typedef {Object} {{resultType.name}}Result
+  * @property {boolean} success - 是否成功
+  * @property {string} errorCode - 错误代码，错误时出现
+  * @property {string} errorDesc - 错误描述内容，错误时出现
+  * @property {Object} errorDetail - 结构化的错误信息
+  * @property { {{resultType.name}} } result - {{resultType.name}} 对象
+  */
+
+/**
+  * {{{method.description}}}
+  * @async
+{{#if paramType}}
+  * @param { Object } params - {{{paramType.description}}}
+{{#each paramType.props }}
+  * @param { {{{type}}} } params.{{name}} - {{{description}}}
+{{/each}}
+{{else}}
+  * @param { Object } params - 无明确规定的参数
+{{/if}}
+  * @return {Promise<{{resultType.name}}Result>} - 响应
+  */
+export function {{method.name}}(params) {
+  return request({
+    url: "{{http.url}}",
+    method: "{{http.method}}",
+    data: params || {},
+  });
+}
